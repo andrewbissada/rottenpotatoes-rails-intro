@@ -1,12 +1,21 @@
 -#  This file is app/views/movies/index.html.haml
+
+-# note if the 2 strings in sortable method match from database to website,  you don't have to put both. title is DB, Movie Title is website
+  -# same for release date below
+      
+  -# ALSO Note that sortable is not rails api, its a method WE created and are calling from the controller
+  -# also, don't be thrown off by the syntax, these two things are just PARAMETERS, we just didn't use parenthases like you would in Java
+  
 %h1 All Movies
 
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= sortable("title", "Movie Title")
+      
+      
       %th Rating
-      %th Release Date
+      %th= sortable("release_date", "Release Date")
       %th More Info
   %tbody
     - @movies.each do |movie|
